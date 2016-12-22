@@ -18,11 +18,11 @@ if  $count.lsb {
 }
 say "median is: " ~ $median;
 
+
+# todo
 my @mode;
 say "mode is: " ~ @mode;
-
 say my  $freq = (@age .grep: @age[2]).elems;
-
 say @age.kv;
 say @age.pairs;
 say @age.antipairs;
