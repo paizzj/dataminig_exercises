@@ -6,7 +6,7 @@ my $count =  @age.elems;
 my $sum   = [+] @age;
 
 say "age 's count is "　~ $count;
-say "mean is :" ~ $sum / $count;
+say "a) mean is :" ~ $sum / $count;
 
 my $median;
 if  $count.lsb {
@@ -16,26 +16,34 @@ if  $count.lsb {
     # odd number of elements
     $median = @age[($count +1) / 2];
 }
-say "median is: " ~ $median;
+say "a) median is: " ~ $median;
 
 # 
-# todo 
-# just for unimodal data sets
-# need deal with bimodal & trimodal data sets
+# NOTE: need deal with bimodal & trimodal data sets
 #
-my $mode;
-my $f = 0;
+my @mode;
+my %freq_hash;
+my $freq = 0;
 for @age.unique -> $i {
     my $t = (@age .grep: $i).elems;
-    if ($t > $f) { 
-	$f = $t;
-	$mode  = $i;
+    %freq_hash.push($i => $t);
+    if ($t >= $freq) {
+	$freq = $t;
     }
 }
-say  "mode is: " ~ $mode;
+for %freq_hash.kv -> $k, $v {
+    #say $k ~ "," ~ $v;
+    if ($v == $freq) {
+	@mode.push($k);
+    }
+}
+say "b) mode is: " ~ @mode;
 
 
 my $midrange = (@age[0] + @age[$count-1]) / 2;
-say "midrange is: " ~ $midrange;
+say "c) midrange is: " ~ $midrange;
 
 
+# TODO
+say "d) Q1: , Q3: ";
+say "e) five-number summary: ";
