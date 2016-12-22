@@ -18,15 +18,21 @@ if  $count.lsb {
 }
 say "median is: " ~ $median;
 
-
-# todo
-my @mode;
-say "mode is: " ~ @mode;
-say my  $freq = (@age .grep: @age[2]).elems;
-say @age.kv;
-say @age.pairs;
-say @age.antipairs;
-say @age.unique.elems;
+# 
+# todo 
+# just for unimodal data sets
+# need deal with bimodal & trimodal data sets
+#
+my $mode;
+my $f = 0;
+for @age.unique -> $i {
+    my $t = (@age .grep: $i).elems;
+    if ($t > $f) { 
+	$f = $t;
+	$mode  = $i;
+    }
+}
+say  "mode is: " ~ $mode;
 
 
 my $midrange = (@age[0] + @age[$count-1]) / 2;
