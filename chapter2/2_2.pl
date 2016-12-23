@@ -23,17 +23,17 @@ say "a) median is: " ~ $median;
 #
 my @mode;
 my %freq_hash;
-my $freq = 0;
+my $freq_max = 0;
 for @age.unique -> $i {
     my $t = (@age .grep: $i).elems;
     %freq_hash.push($i => $t);
-    if ($t >= $freq) {
-	$freq = $t;
+    if ($t >= $freq_max) {
+	$freq_max = $t;
     }
 }
 for %freq_hash.kv -> $k, $v {
     #say $k ~ "," ~ $v;
-    if ($v == $freq) {
+    if ($v == $freq_max) {
 	@mode.push($k);
     }
 }
