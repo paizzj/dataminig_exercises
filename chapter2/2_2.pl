@@ -1,7 +1,7 @@
 use v6;
 
 my @age;
-for "age.txt".IO.lines  -> $line {
+for "data/age.txt".IO.lines  -> $line {
     @age.append:  split(',', $line);
 }
 
