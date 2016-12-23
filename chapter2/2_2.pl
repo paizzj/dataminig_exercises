@@ -47,15 +47,20 @@ my $midrange = (@age[0] + @age[$count-1]) / 2;
 say "c) midrange is: " ~ $midrange;
 
 
-
+my $Q1;
+my $Q3;
 if ($count.lsb) {
     # even number of elements
-    say "d) Q1: " ~ @age[($count/4)] ~ " Q3: " ~ @age[(($count/4)*3)];
+    $Q1 = @age[$count/4];
+    $Q3 = @age[($count/4)*3];
 } else {
     # odd number of elements
-    say "d) Q1: " ~ @age[round(($count/4))] ~ " Q3: " ~ @age[round((($count/4)*3))];
+    $Q1 = @age[round($count/4)];
+    $Q3 = @age[round(($count/4) * 3)];
 }
-
+say "d) Q1: " ~ $Q1 ~ " Q3: " ~ $Q3;
 
 # todo
-say "e) five-number summary: ";
+say "e) five-number summary Q1: " ~ $Q1 ~ ", Q2: " ~ $median ~ ", Q3: " ~ $Q3 ~  " ,minimum: " ~ @age[0] ~ ",maxium: " ~ @age[$count-1];
+
+
