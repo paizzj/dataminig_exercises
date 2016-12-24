@@ -54,6 +54,6 @@ my $width = $Lm - $L1;
 
 
 
-# finalily compute the median;
+# finalily compute the approximate median;
 
 say "median: " ~ $L1 + (($total_freq/2  - $s) / $freq_median)*$width;
