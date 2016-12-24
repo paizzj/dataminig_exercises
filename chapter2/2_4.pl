@@ -19,7 +19,7 @@ my $fat_sum;
 for @age_fat -> $item {
     #say split(':', $item);
     @age.push(split(':', $item)[0]);
-    @fat.push(split(':', $item)[1]);
+    @fat.push((split(':', $item)[1])/100);
 }
 
 $age_count = @age.elems;
@@ -57,11 +57,11 @@ $age_sd = sqrt(([+] @age_square) / $age_count);
 my $fat_sd;
 my @fat_square;
 for @fat -> $f {
-    @fat_square.push(($f/100 - $fat_mean/100) * ($f/100 - $fat_mean/100));
+    @fat_square.push(($f - $fat_mean) * ($f - $fat_mean));
 }
 $fat_sd = sqrt(([+] @fat_square) / $fat_count);
 
 
 
 say "a) age's mean " ~ $age_mean ~ "\t median: " ~ $age_median ~ "\t standard deviation: " ~ $age_sd;
-say "a) fat's mean " ~ $fat_mean/100 ~ "\t median: " ~ $fat_median/100 ~ "\t standard deviation: " ~ $fat_sd;;
+say "a) fat's mean " ~ $fat_mean ~ "\t median: " ~ $fat_median ~ "\t standard deviation: " ~ $fat_sd;;
