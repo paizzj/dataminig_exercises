@@ -60,7 +60,14 @@ if ($count.lsb) {
 }
 say "d) Q1: " ~ $Q1 ~ " Q3: " ~ $Q3;
 
-# todo
+
 say "e) five-number summary Q1: " ~ $Q1 ~ ", Q2: " ~ $median ~ ", Q3: " ~ $Q3 ~  " ,minimum: " ~ @age[0] ~ ",maxium: " ~ @age[$count-1];
+
+
+# todo 
+# boxplot for five-number summary
+
+# todo 
+# the diffenent of quantile plot & quantile-quantile plot 
 
 
